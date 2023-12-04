@@ -2,7 +2,7 @@ version: '3'
 services:
   mongo:
     image: mongo
-    container_name: mongo_nodejsmon
+    container_name: mongo_lagunpay
     restart: always
     ports:
       - ${DB_PORT}:27017
@@ -11,7 +11,7 @@ services:
     
   node:
     build: .
-    container_name: nodejsmon
+    container_name: node_lagunpay
     restart: always
     ports:
       - ${APP_PORT}:3000
