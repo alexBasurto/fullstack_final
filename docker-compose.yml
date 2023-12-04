@@ -5,9 +5,10 @@ services:
     container_name: mongo_lagunpay
     restart: always
     ports:
-      - ${DB_PORT}:27017
+      - ${MONGO_INITDB_PORT}:27017
     volumes:
-      - ./data:/data/db
+      - ./db/init/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+      - ./db/data:/db/data
     
   node:
     build: .
