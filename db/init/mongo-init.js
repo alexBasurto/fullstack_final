@@ -141,6 +141,7 @@ db.groups.insertMany([
                 amount: 1000,
                 description: "Desayunos",
                 date: "2023-12-05",
+                hour: "10:00",
                 user: "jon@lagunpay.eus",
                 beneficiary: [
                     "victor@lagunpay.eus",
@@ -152,6 +153,7 @@ db.groups.insertMany([
                 amount: 2000,
                 description: "Comida",
                 date: "2023-12-05",
+                hour: "14:00",
                 user: "victor@lagunpay.eus",
                 beneficiary: [
                     "victor@lagunpay.eus",
@@ -184,6 +186,7 @@ db.groups.insertMany([
                 amount: 18000,
                 description: "Desayunos",
                 date: "2023-12-05",
+                hour: "10:00",
                 user: "danel@lagunpay.eus",
                 beneficiary: [
                     "jon@lagunpay.eus",
