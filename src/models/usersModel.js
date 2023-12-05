@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import mongodb from "../config/mongo.js";
 
 const userSchema = new mongoose.Schema({
     username: {
