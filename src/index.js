@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import session from "express-session";
 
 // Importa el módulo de enrutador definido en "router.js".
-// import router from "./routes/router.js";
+import router from "./routes/router.js";
 
 // Carga las variables de entorno desde un archivo ".env".
 dotenv.config();
@@ -29,11 +29,11 @@ app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
-// app.use("/",router);
+app.use("/",router);
 
-app.use("/",(req,res)=>{
+/* app.use("/",(req,res)=>{
     res.send("hola mundo");
-});
+}); */
 
 // Inicia el servidor en el puerto 3006 y muestra un mensaje en la consola
 app.listen(3000, () => console.log(`Servidor web en marcha en puerto ${process.env.APP_PORT}.`));
