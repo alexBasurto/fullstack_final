@@ -1,13 +1,15 @@
 // Usa (crea) la base de datos lagunpay
-const db = db.getSiblingDB('lagunpay');
+const db = db.getSiblingDB(process.env.MONGO_DATABASE);
+
+console.log(process.env);
 
 db.createUser({
-    user: 'root',
-    pwd: 'root',
+    user: process.env.MONGO_ROOT_USERNAME,
+    pwd: process.env.MONGO_ROOT_PASSWORD,
     roles: [
         {
             role: 'readWrite',
-            db: 'lagunpay'
+            db: process.env.MONGO_DATABASE
         }
     ]
 });
