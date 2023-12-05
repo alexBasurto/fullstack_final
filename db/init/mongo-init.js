@@ -143,11 +143,18 @@ db.groups.insertMany([
                 date: "2023-12-05",
                 hour: "10:00",
                 user: "jon@lagunpay.eus",
-                beneficiary: [
-                    "victor@lagunpay.eus",
-                    "alex@lagunpay.eus",
-                    "jon@lagunpay.eus",
-                ],
+                beneficiaryAndRepartition: [
+                    {
+                        email: "victor@lagunpay.eus",
+                        amount: 500
+                    }, {
+                        email: "jon@lagunpay.eus",
+                        amount: 300
+                    }, {
+                        email: "alex@lagunpay.eus",
+                        amount: 200
+                    }
+                ]
             },
             {
                 amount: 2000,
@@ -155,11 +162,18 @@ db.groups.insertMany([
                 date: "2023-12-05",
                 hour: "14:00",
                 user: "victor@lagunpay.eus",
-                beneficiary: [
-                    "victor@lagunpay.eus",
-                    "alex@lagunpay.eus",
-                    "jon@lagunpay.eus",
-                ],
+                beneficiaryAndRepartition: [
+                    {
+                        email: "victor@lagunpay.eus",
+                        amount: 'equal'
+                    }, {
+                        email: "jon@lagunpay.eus",
+                        amount: 'equal'
+                    }, {
+                        email: "alex@lagunpay.eus",
+                        amount: 'equal'
+                    }
+                ]
             },
         ],
     },
@@ -188,18 +202,64 @@ db.groups.insertMany([
                 date: "2023-12-05",
                 hour: "10:00",
                 user: "danel@lagunpay.eus",
-                beneficiary: [
-                    "jon@lagunpay.eus",
-                    "victor@lagunpay.eus",
-                    "alex@lagunpay.eus",
-                    "mikel@lagunpay.eus",
-                    "david@lagunpay.eus",
-                    "ander@lagunpay.eus",
-                    "ester@lagunpay.eus",
-                    "danel@lagunpay.eus",
-                    "jesus@lagunpay.eus",
-                ],
+                beneficiaryAndRepartition: [
+                    {
+                        email: "jon@lagunpay.eus",
+                        amount: 2000
+                    }, {
+                        email: "victor@lagunpay.eus",
+                        amount: 2000
+                    }, {
+                        email: "alex@lagunpay.eus",
+                        amount: 2000
+                    }, {
+                        email: "mikel@lagunpay.eus",
+                        amount: 2000
+                    }, {
+                        email: "david@lagunpay.eus",
+                        amount: 2000
+                    }, {
+                        email: "ander@lagunpay.eus",
+                        amount: 2000
+                    }, {
+                        email: "ester@lagunpay.eus",
+                        amount: 2000
+                    }, {
+                        email: "danel@lagunpay.eus",
+                        amount: 3000
+                    }, {
+                        email: "jesus@lagunpay.eus",
+                        amount: 1000
+                    }, 
+                ]
             },
         ],
     },
+    {
+        name: "Grupo 3",
+        description: "Grupo de prueba",
+        users: [
+            "jon@lagunpay.eus",
+            "alex@lagunpay.eus"
+        ],
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        active: false,
+        owner: "admin",
+        transactions: [
+            {
+                amount: 1000,
+                description: "Desayunos",
+                date: "2023-12-05",
+                hour: "10:00",
+                user: "alex@lagunpay.eus",
+                beneficiaryAndRepartition: [
+                    {
+                        email: "jon@lagunpay.eus",
+                        amount: 1000
+                    }
+                ]
+            },
+        ],
+    }
 ]);
