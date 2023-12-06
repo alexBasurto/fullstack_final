@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import mongodb from "../config/mongodb.js";
+import mongodb from "../config/mongo.js";
 
 const beneficiaryAndRepartitionSchema = new mongoose.Schema({
     email: {
