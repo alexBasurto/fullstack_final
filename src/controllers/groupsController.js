@@ -1,5 +1,4 @@
 //groupsController.js
-import e from 'express';
 import groupModel from '../models/groupsModel.js';
 
 const getAllGroups = async (req, res) => {

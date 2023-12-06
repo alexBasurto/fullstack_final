@@ -19,7 +19,7 @@ db.users.insertMany([
         username: "admin",
         email: "admin@lagunpay.eus",
         mobile: "666666666",
-        password:
+        passwordHash:
             "$2b$10$dlVvqHBLDub/713Fjjdwp.ELesJjjOfaT7RHcvYazn7uF8M77iGTC",
         role: "admin",
         active: true,
@@ -30,7 +30,7 @@ db.users.insertMany([
         username: "Alex Basurto",
         email: "alex@lagunpay.eus",
         mobile: "666666661",
-        password:
+        passwordHash:
             "$2b$10$dlVvqHBLDub/713Fjjdwp.ELesJjjOfaT7RHcvYazn7uF8M77iGTC",
         role: "user",
         active: true,
@@ -41,7 +41,7 @@ db.users.insertMany([
         username: "Jon Irueta",
         email: "jon@lagunpay.eus",
         mobile: "666666662",
-        password:
+        passwordHash:
             "$2b$10$dlVvqHBLDub/713Fjjdwp.ELesJjjOfaT7RHcvYazn7uF8M77iGTC",
         role: "user",
         active: true,
@@ -52,7 +52,7 @@ db.users.insertMany([
         username: "Mikel Urrestarazu",
         email: "mikel@lagunpay.eus",
         mobile: "666666663",
-        password:
+        passwordHash:
             "$2b$10$dlVvqHBLDub/713Fjjdwp.ELesJjjOfaT7RHcvYazn7uF8M77iGTC",
         role: "user",
         active: true,
@@ -63,7 +63,7 @@ db.users.insertMany([
         username: "Víctor Campos",
         email: "victor@lagunpay.eus",
         mobile: "666666664",
-        password:
+        passwordHash:
             "$2b$10$dlVvqHBLDub/713Fjjdwp.ELesJjjOfaT7RHcvYazn7uF8M77iGTC",
         role: "user",
         active: true,
@@ -74,7 +74,7 @@ db.users.insertMany([
         username: "David Ramos",
         email: "david@lagunpay.eus",
         mobile: "666666665",
-        password:
+        passwordHash:
             "$2b$10$dlVvqHBLDub/713Fjjdwp.ELesJjjOfaT7RHcvYazn7uF8M77iGTC",
         role: "user",
         active: true,
@@ -85,7 +85,7 @@ db.users.insertMany([
         username: "Ander Aramendi",
         email: "ander@lagunpay.eus",
         mobile: "666666667",
-        password:
+        passwordHash:
             "$2b$10$dlVvqHBLDub/713Fjjdwp.ELesJjjOfaT7RHcvYazn7uF8M77iGTC",
         role: "user",
         active: true,
@@ -96,7 +96,7 @@ db.users.insertMany([
         username: "Esther Carmona",
         email: "ester@lagunpay.eus",
         mobile: "666666668",
-        password:
+        passwordHash:
             "$2b$10$dlVvqHBLDub/713Fjjdwp.ELesJjjOfaT7RHcvYazn7uF8M77iGTC",
         role: "user",
         active: true,
@@ -107,7 +107,7 @@ db.users.insertMany([
         username: "Danel Lafuente",
         email: "danel@lagunpay.eus",
         mobile: "666666669",
-        password:
+        passwordHash:
             "$2b$10$dlVvqHBLDub/713Fjjdwp.ELesJjjOfaT7RHcvYazn7uF8M77iGTC",
         role: "user",
         active: true,
@@ -118,7 +118,7 @@ db.users.insertMany([
         username: "Jesús Cabado",
         email: "jesus@lagunpay.eus",
         mobile: "666666660",
-        password:
+        passwordHash:
             "$2b$10$dlVvqHBLDub/713Fjjdwp.ELesJjjOfaT7RHcvYazn7uF8M77iGTC",
         role: "admin",
         active: true,

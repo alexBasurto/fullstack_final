@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema({
         max: 9,
         unique: true,
     },
-    password: {
+    passwordHash: {
         type: String,
         required: true,
         min: 8,
