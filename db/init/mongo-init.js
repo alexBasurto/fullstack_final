@@ -165,13 +165,13 @@ db.groups.insertMany([
                 beneficiaryAndRepartition: [
                     {
                         email: "victor@lagunpay.eus",
-                        amount: 'equal'
+                        amount: 666
                     }, {
                         email: "jon@lagunpay.eus",
-                        amount: 'equal'
+                        amount: 666
                     }, {
                         email: "alex@lagunpay.eus",
-                        amount: 'equal'
+                        amount: 666
                     }
                 ]
             },

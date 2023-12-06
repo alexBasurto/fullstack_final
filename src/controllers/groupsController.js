@@ -32,13 +32,14 @@ const createGroup = async (req, res) => {
 }
 
 const updateGroup = async (req, res) => {
-    const group = await groupModel.findById(req.params.id);
-    const { name, description, users } = req.body;
-    if (name) group.name = name;
-    if (description) group.description = description;
-    if (users) group.users = users;
-    group.updatedAt = new Date();
     try {
+        const group = await groupModel.findById(req.params.id);
+        const { name, description, users } = req.body;
+        console.log('\x1b[41m%s\x1b[0m', group);
+        if (name) group.name = name;
+        if (description) group.description = description;
+        if (users) group.users = users;
+        group.updatedAt = new Date();
         await group.save();
         res.status(200).json(group);
     } catch (error) {
