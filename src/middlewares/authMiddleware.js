@@ -4,7 +4,6 @@ import userModel from '../models/usersModel.js';
 
 const checkLoggedIn = (req, res, next) => {
     try {
-        console.log('CHECK LOGIN', req.headers?.cookie);
         if (!req.headers?.cookie) {
             return res.status(401).json({ errorMessage: "Unauthorized" });
         }
@@ -15,8 +14,7 @@ const checkLoggedIn = (req, res, next) => {
                 return cookiesObject;
             }, {});
         const token = cookies.token;
-        console.log('TOKEN', token);
-        if (!token) return res.status(401).json({ errorMessage: "Unauthorized1" });
+        if (!token) return res.status(401).json({ errorMessage: "Unauthorized" });
         jwt.verify(token, process.env.JWT_SECRET);
         next();
     }
@@ -27,16 +25,20 @@ const checkLoggedIn = (req, res, next) => {
 
 const checkAdmin = async (req, res, next) => {
     try {
-        const check = await loggedIn(req, res);
-        if (check) {
-            const user = await userModel.findById(req.user);
-            if (user.role === "admin") {
-                next();
-            } else {
-                res.status(401).json({ errorMessage: "Unauthorized" });
-            }
+        const cookies = req.headers?.cookie.split(';').reduce((cookiesObject, cookie) => {
+            const [name, value] = cookie.trim().split('=');
+            cookiesObject[name] = value;
+            return cookiesObject;
+        }, {});
+        const token = cookies.token;
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const user = await userModel.findById(decoded.user);
+        if (user.role === 'admin') {
+            next();
+        } else {
+            res.status(401).json({ errorMessage: "Unauthorized" });
         }
-    } catch (error) {
+    } catch (err) {
         res.status(401).json({ errorMessage: "Unauthorized" });
     }
 }

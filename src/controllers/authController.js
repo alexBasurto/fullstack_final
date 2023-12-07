@@ -95,7 +95,9 @@ const login = async (req, res) => {
         // Send the token in a HTTP-only cookie
         res.cookie('token', token, {
             httpOnly: true,
-        }).send();
+            maxAge: 60 * 60 * 1000
+        }
+        ).send();
 
     } catch (err) {
         console.error(err);

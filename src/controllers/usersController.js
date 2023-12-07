@@ -3,7 +3,7 @@ import userModel from "../models/usersModel.js";
 
 const getAllUsers = async (req, res) => {
     try {
-        const users = await userModel.find();
+        const users = await userModel.find().select("-passwordHash");
         res.status(200).json(users);
     } catch (error) {
         res.status(404).json({ message: error.message });
