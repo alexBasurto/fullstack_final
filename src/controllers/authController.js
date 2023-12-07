@@ -88,11 +88,12 @@ const login = async (req, res) => {
 
         // Sign the token
         const token = jwt.sign({
-            user: existingUser._id
+            user: existingUser._id,
+            expiresIn: '1h'
         }, process.env.JWT_SECRET);
 
         // Send the token in a HTTP-only cookie
-        res.cookie("token", token, {
+        res.cookie('token', token, {
             httpOnly: true,
         }).send();
 
@@ -109,24 +110,8 @@ const logout = (req, res) => {
     }).send();
 }
 
-// Check if the user is logged in
-// This will be called from the middleware in src/middleware/authMiddleware.js
-const loggedIn = (req, res) => {
-    try {
-        const token = req.cookies.token;
-        if (!token) return res.json(false);
-
-        jwt.verify(token, process.env.JWT_SECRET);
-
-        res.send(true);
-    } catch (err) {
-        res.json(false);
-    }
-}
-
 export default {
     register,
     login,
-    logout,
-    loggedIn
+    logout
 }
