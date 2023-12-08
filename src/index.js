@@ -2,6 +2,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import session from "express-session";
+import cors from "cors";
 
 // Importa el módulo de enrutador definido en "router.js".
 import router from "./routes/router.js";
@@ -11,6 +12,23 @@ dotenv.config();
 
 // Crea una instancia de ExpressJS
 const app = express();
+
+// Configurar cabeceras CORS
+/* app.use((req, res, next) => {
+    const requestOrigin = req.headers.origin;
+    console.log('Solicitud recibida desde el origen:', requestOrigin);
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.header('Access-Control-Allow-Credentials', 'true');
+    next();
+  }); */
+
+const corsOptions = {
+    origin: process.env.FRONTEND_URL,
+    credentials: true,
+}
+app.use(cors(corsOptions));
 
 app.use(session({
     secret: process.env.SESSION_SECRET,
