@@ -19,6 +19,16 @@ const getGroupById = async (req, res) => {
     }
 }
 
+
+const getMyGroups = async (req, res) => {  
+    try {
+        const groups = await groupModel.find({ users: req.userId });
+        res.status(200).json(groups);
+    } catch (error) {
+        res.status(404).json({ message: error.message });
+    }
+}
+
 const createGroup = async (req, res) => {
     const group = req.body;
     const newGroup = new groupModel(group);
@@ -55,4 +65,4 @@ const deleteGroup = async (req, res) => {
     }
 }
 
-export default { getAllGroups, getGroupById, createGroup, updateGroup, deleteGroup };
+export default { getAllGroups, getGroupById, createGroup, updateGroup, deleteGroup, getMyGroups};
