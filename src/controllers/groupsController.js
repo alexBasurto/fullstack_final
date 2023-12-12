@@ -11,16 +11,6 @@ const getAllGroups = async (req, res) => {
 }
 
 
-const getMyGroups = async (req, res) => { 
-    try {
-        const groups = await groupModel.find({ users: req.cookie.email });
-        res.status(200).json(groups);
-    } catch (error) {
-        res.status(404).json({ message: error.message });
-    }
-}
-
-
 const getGroupById = async (req, res) => {
     try {
         const group = await groupModel.findById(req.params.id);
