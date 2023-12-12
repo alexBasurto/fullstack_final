@@ -12,8 +12,13 @@ const getAllUsers = async (req, res) => {
 
 const getUserById = async (req, res) => {
     try {
-        const user = await userModel.findById(req.params.id);
-        res.status(200).json(user);
+        if (req.params.id === 'me') {
+            const user = await userModel.findById(req.userId).select("-passwordHash");
+            res.status(200).json(user);
+        } else {
+            const user = await userModel.findById(req.params.id).select("-passwordHash");
+            res.status(200).json(user);
+        }
     } catch (error) {
         res.status(404).json({ message: error.message });
     }
