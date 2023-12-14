@@ -1,6 +1,8 @@
 //usersController.js
 import userModel from "../models/usersModel.js";
 
+import bcrypt from 'bcrypt';
+
 const getAllUsers = async (req, res) => {
     try {
         const users = await userModel.find().select("-passwordHash");
@@ -37,7 +39,25 @@ const createUser = async (req, res) => {
 
 const updateUser = async (req, res) => {
     try {
-        const user = await userModel.findById(req.params.id);
+        let userId;
+        if (req.params.id === 'me') {
+            userId = req.userId;
+        } else {
+            userId = req.params.id;
+        }
+        if (req.body.password) {
+            
+            if (req.body.password !== req.body.passwordVerify) {
+                return res.status(400).json({ errorMessage: "Please enter the same password twice." });
+            } else if (req.body.password.length < 8) {
+                return res.status(400).json({ errorMessage: "Please enter a password of at least 8 characters." });
+            }
+            const salt = await bcrypt.genSalt();
+            const passwordHash = await bcrypt.hash(req.body.password, salt);
+            req.body.password = passwordHash;
+        }
+
+        const user = await userModel.findById(userId);
         const { username, email, mobile, password, role, active } = req.body;
         if (username) user.username = username;
         if (email) user.email = email;
