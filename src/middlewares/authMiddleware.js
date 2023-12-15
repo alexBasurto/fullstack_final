@@ -16,7 +16,8 @@ const checkLoggedIn = (req, res, next) => {
         const token = cookies.token;
         if (!token) return res.status(401).json({ errorMessage: "Unauthorized" });
         const dataUser = jwt.verify(token, process.env.JWT_SECRET);
-        req.userId = dataUser.user;
+        req.userId = dataUser.userId;
+        req.userEmail = dataUser.userEmail;
         next();
     }
     } catch (err) {

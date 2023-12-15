@@ -23,7 +23,7 @@ const getGroupById = async (req, res) => {
 
 const getMyGroups = async (req, res) => {  
     try {
-        const groups = await groupModel.find({ users: req.userId });
+        const groups = await groupModel.find({ $and: [{users: req.userEmail}, {active: true}] });
         res.status(200).json(groups);
     } catch (error) {
         res.status(404).json({ message: error.message });
@@ -57,6 +57,18 @@ const updateGroup = async (req, res) => {
     }
 }
 
+const desactiveGroup = async (req, res) => {
+    try {
+        const group = await groupModel.findById(req.params.id);
+        group.active = false;
+        await group.save();
+        res.status(200).json(group);
+    } catch (error) {
+        res.status(404).json({ message: error.message });
+    }
+}
+
+
 const deleteGroup = async (req, res) => {
     try {
         const group = await groupModel.findByIdAndDelete(req.params.id);
@@ -66,4 +78,4 @@ const deleteGroup = async (req, res) => {
     }
 }
 
-export default { getAllGroups, getGroupById, createGroup, updateGroup, deleteGroup, getMyGroups};
+export default { getAllGroups, getGroupById, createGroup, updateGroup, deleteGroup, getMyGroups, desactiveGroup};
