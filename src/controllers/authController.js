@@ -99,8 +99,11 @@ const login = async (req, res) => {
             httpOnly: true,
             maxAge: 60 * 60 * 1000
         }
-        ).send();
-
+        ).json({
+            userId: existingUser._id,
+            email: existingUser.email,
+            username: existingUser.username
+        }).send();
     } catch (err) {
         console.error(err);
         res.status(500).send();
