@@ -90,6 +90,7 @@ const login = async (req, res) => {
         const token = jwt.sign({
             userId: existingUser._id,
             userEmail: existingUser.email,
+            userName: existingUser.username,
             expiresIn: '1h'
         }, process.env.JWT_SECRET);
 
@@ -113,8 +114,24 @@ const logout = (req, res) => {
     }).send();
 }
 
+const session = (req, res) => {
+    try {
+        const cookies = req.headers?.cookie.split(';').reduce((cookiesObject, cookie) => {
+            const [name, value] = cookie.trim().split('=');
+            cookiesObject[name] = value;
+            return cookiesObject;
+        }, {});
+        const token = cookies.token;
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        res.status(200).json({ userId: decoded.userId, email: decoded.userEmail, username: decoded.userName });
+    } catch (err) {
+        res.status(401).json({ errorMessage: "Unauthorized" });
+    }
+}
+
 export default {
     register,
     login,
-    logout
+    logout,
+    session
 }
