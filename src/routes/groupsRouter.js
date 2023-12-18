@@ -12,5 +12,6 @@ groupsRouter.post("/new", (req, res) => groupsController.createGroup(req, res));
 groupsRouter.put("/:id/edit", (req, res) => groupsController.updateGroup(req, res));
 groupsRouter.put("/:id/delete", (req, res) => groupsController.desactiveGroup(req, res));
 groupsRouter.delete("/:id", (req, res) => groupsController.deleteGroup(req, res));
+groupsRouter.post("/:id/transaction/new", (req, res) => groupsController.createTransaction(req, res));
 
 export default groupsRouter;

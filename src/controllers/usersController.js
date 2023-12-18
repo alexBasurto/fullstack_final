@@ -82,5 +82,15 @@ const deleteUser = async (req, res) => {
     }
 }
 
-export default { getAllUsers, getUserById, createUser, updateUser, deleteUser };
+    //funcion para buscar usuario por email backend
+    const getUserByEmail = async (req, res) => {
+        try {
+            const user = await userModel.findOne({ email: req.params.email });
+            res.status(200).json(user);
+        } catch (error) {
+            res.status(404).json({ message: error.message });
+        }
+    }
+
+export default { getAllUsers, getUserById, createUser, updateUser, deleteUser, getUserByEmail };
 

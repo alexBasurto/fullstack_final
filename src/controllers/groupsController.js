@@ -78,4 +78,59 @@ const deleteGroup = async (req, res) => {
     }
 }
 
-export default { getAllGroups, getGroupById, createGroup, updateGroup, deleteGroup, getMyGroups, desactiveGroup};
+//transaction en backend
+const createTransaction = async (req, res) => {
+    try {
+        const group = await groupModel.findById(req.params.id);
+        console.log("GRUPO AQUI", group.users)
+        const { amount, description, date, hour, user, beneficiaryAndRepartition } = req.body;
+        const transaction = {
+            amount: amount,
+            description: description,
+            date: date,
+            hour: Date.now(),
+            user: user,
+            beneficiaryAndRepartition: beneficiaryAndRepartition || group.users.map(user => ({email: user, amount: amount/group.users.length}))
+        }
+        console.log("TRANSACTION AQUI", transaction)
+        group.transactions.push(transaction);
+        await group.save();
+        console.log("GRUPO Guardado AQUI", group)
+        res.status(200).json(group);
+    }
+    catch (error) {
+        res.status(404).json({ message: error.message });
+    }
+}
+
+const updateTransaction = async (req, res) => {
+    try {
+        const group = await groupModel.findById(req.params.id);
+        const transaction = group.transactions.id(req.params.idTransaction);
+        const { amount, description, date, hour, user, beneficiaryAndRepartition } = req.body;
+        if (amount) transaction.amount = amount;
+        if (description) transaction.description = description;
+        if (date) transaction.date = date;
+        if (hour) transaction.hour = hour;
+        if (user) transaction.user = user;
+        if (beneficiaryAndRepartition) transaction.beneficiaryAndRepartition = beneficiaryAndRepartition;
+        await group.save();
+        res.status(200).json(group);
+    }
+    catch (error) {
+        res.status(404).json({ message: error.message });
+    }
+}
+
+
+export default { 
+    getAllGroups, 
+    getGroupById, 
+    createGroup, 
+    updateGroup, 
+    deleteGroup, 
+    getMyGroups, 
+    desactiveGroup,
+    createTransaction,
+    updateTransaction
+};

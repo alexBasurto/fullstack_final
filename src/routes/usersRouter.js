@@ -10,6 +10,7 @@ usersRouter.get("/:id", checkLoggedIn, (req, res) => usersController.getUserById
 usersRouter.post("/new", checkLoggedIn, (req, res) => usersController.createUser(req, res));
 usersRouter.put("/:id/edit", checkLoggedIn, (req, res) => usersController.updateUser(req, res));
 usersRouter.delete("/:id", checkLoggedIn, (req, res) => usersController.deleteUser(req, res));
+usersRouter.get("/email/:email", checkLoggedIn, (req, res) => usersController.getUserByEmail(req, res));
 
 
 export default usersRouter;
