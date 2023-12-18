@@ -20,7 +20,7 @@ db.users.insertMany([
         email: "admin@lagunpay.eus",
         mobile: "666666666",
         passwordHash:
-            "$2b$10$dlVvqHBLDub/713Fjjdwp.ELesJjjOfaT7RHcvYazn7uF8M77iGTC",
+            "$2b$10$JPmhNW3/dHo0IuLaqR6NHub/qT7rUXj9t7StM2Zd14jgNPPI0nYeu",
         role: "admin",
         active: true,
         createdAt: new Date(),
@@ -31,7 +31,7 @@ db.users.insertMany([
         email: "alex@lagunpay.eus",
         mobile: "666666661",
         passwordHash:
-            "$2b$10$dlVvqHBLDub/713Fjjdwp.ELesJjjOfaT7RHcvYazn7uF8M77iGTC",
+            "$2b$10$JPmhNW3/dHo0IuLaqR6NHub/qT7rUXj9t7StM2Zd14jgNPPI0nYeu",
         role: "user",
         active: true,
         createdAt: new Date(),
@@ -42,7 +42,7 @@ db.users.insertMany([
         email: "jon@lagunpay.eus",
         mobile: "666666662",
         passwordHash:
-            "$2b$10$dlVvqHBLDub/713Fjjdwp.ELesJjjOfaT7RHcvYazn7uF8M77iGTC",
+            "$2b$10$JPmhNW3/dHo0IuLaqR6NHub/qT7rUXj9t7StM2Zd14jgNPPI0nYeu",
         role: "user",
         active: true,
         createdAt: new Date(),
@@ -53,7 +53,7 @@ db.users.insertMany([
         email: "mikel@lagunpay.eus",
         mobile: "666666663",
         passwordHash:
-            "$2b$10$dlVvqHBLDub/713Fjjdwp.ELesJjjOfaT7RHcvYazn7uF8M77iGTC",
+            "$2b$10$JPmhNW3/dHo0IuLaqR6NHub/qT7rUXj9t7StM2Zd14jgNPPI0nYeu",
         role: "user",
         active: true,
         createdAt: new Date(),
@@ -64,7 +64,7 @@ db.users.insertMany([
         email: "victor@lagunpay.eus",
         mobile: "666666664",
         passwordHash:
-            "$2b$10$dlVvqHBLDub/713Fjjdwp.ELesJjjOfaT7RHcvYazn7uF8M77iGTC",
+            "$2b$10$JPmhNW3/dHo0IuLaqR6NHub/qT7rUXj9t7StM2Zd14jgNPPI0nYeu",
         role: "user",
         active: true,
         createdAt: new Date(),
@@ -75,7 +75,7 @@ db.users.insertMany([
         email: "david@lagunpay.eus",
         mobile: "666666665",
         passwordHash:
-            "$2b$10$dlVvqHBLDub/713Fjjdwp.ELesJjjOfaT7RHcvYazn7uF8M77iGTC",
+            "$2b$10$JPmhNW3/dHo0IuLaqR6NHub/qT7rUXj9t7StM2Zd14jgNPPI0nYeu",
         role: "user",
         active: true,
         createdAt: new Date(),
@@ -86,7 +86,7 @@ db.users.insertMany([
         email: "ander@lagunpay.eus",
         mobile: "666666667",
         passwordHash:
-            "$2b$10$dlVvqHBLDub/713Fjjdwp.ELesJjjOfaT7RHcvYazn7uF8M77iGTC",
+            "$2b$10$JPmhNW3/dHo0IuLaqR6NHub/qT7rUXj9t7StM2Zd14jgNPPI0nYeu",
         role: "user",
         active: true,
         createdAt: new Date(),
@@ -97,7 +97,7 @@ db.users.insertMany([
         email: "ester@lagunpay.eus",
         mobile: "666666668",
         passwordHash:
-            "$2b$10$dlVvqHBLDub/713Fjjdwp.ELesJjjOfaT7RHcvYazn7uF8M77iGTC",
+            "$2b$10$JPmhNW3/dHo0IuLaqR6NHub/qT7rUXj9t7StM2Zd14jgNPPI0nYeu",
         role: "user",
         active: true,
         createdAt: new Date(),
@@ -108,7 +108,7 @@ db.users.insertMany([
         email: "danel@lagunpay.eus",
         mobile: "666666669",
         passwordHash:
-            "$2b$10$dlVvqHBLDub/713Fjjdwp.ELesJjjOfaT7RHcvYazn7uF8M77iGTC",
+            "$2b$10$JPmhNW3/dHo0IuLaqR6NHub/qT7rUXj9t7StM2Zd14jgNPPI0nYeu",
         role: "user",
         active: true,
         createdAt: new Date(),
@@ -119,7 +119,7 @@ db.users.insertMany([
         email: "jesus@lagunpay.eus",
         mobile: "666666660",
         passwordHash:
-            "$2b$10$dlVvqHBLDub/713Fjjdwp.ELesJjjOfaT7RHcvYazn7uF8M77iGTC",
+            "$2b$10$JPmhNW3/dHo0IuLaqR6NHub/qT7rUXj9t7StM2Zd14jgNPPI0nYeu",
         role: "admin",
         active: true,
         createdAt: new Date(),
